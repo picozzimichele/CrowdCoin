@@ -50,7 +50,7 @@ class CampaignShow extends Component {
             {
                 header: requestsCount,
                 meta: 'Number of Requests',
-                description:'A Request made from the Manager tries to withdraw money from the contract and needs to be approved',
+                description:'A Request is made by the Manager to withdraw money from the contract and needs to be approved',
                 style: {overflowWrap: "break-word"}  
                 
             },
