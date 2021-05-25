@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
-import { Menu } from 'semantic-ui-react';
+import { Menu, Button } from 'semantic-ui-react';
 import Link from "next/link";
 
 export default class Header extends Component {
-  state = {}
+state = {}
 
 handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
+getAccount = async () => {
+  console.log("been clicked");
+  const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+  const account = accounts[0];
+};
 
   render() {
     const { activeItem } = this.state
@@ -15,6 +21,9 @@ handleItemClick = (e, { name }) => this.setState({ activeItem: name })
             <Link href="/">
                 <a className="item">CrowdCoin</a>
             </Link>
+            <Button basic color='teal' onClick={this.getAccount}>
+              Connect Metamask
+            </Button> 
         <Menu.Menu position='right'>
             <Link href="/">
                 <a className="item">Campaigns</a>
