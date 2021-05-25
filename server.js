@@ -13,4 +13,9 @@ app.prepare().then(() => {
         if (err) throw err;
         console.log("Ready on localhost:3000");
     })
-})
+});
+
+/*
+firebase-admin,firebase-functions
+require these plugins,install them
+*/
