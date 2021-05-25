@@ -1,8 +1,6 @@
 const HDWalletProvider = require("truffle-hdwallet-provider");
 const Web3 = require("web3");
 const compiledFactory = require("./build/CampaignFactory.json");
-const mnemonic = process.env.ACCOUNT_MNEMONIC;
-const network = process.env.RINKEBY_ENDPOINT;
 
 //Deployed to: 0x6F7f1c7E6793C0137B485b1fba2ee397eF2a2C64
 
