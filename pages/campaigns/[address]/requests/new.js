@@ -1,9 +1,10 @@
 import React, {Component} from "react";
-import Layout from "../../../components/Layout";
 import { Form, Button, Message, Input } from "semantic-ui-react";
-import campaignRetreve from "../../../ethereum/campaign";
-import web3 from "../../../ethereum/web3";
-import { Link, Router } from "../../../routes";
+import Layout from "../../../../components/Layout";
+import campaignRetreve from "../../../../ethereum/campaign";
+import web3 from "../../../../ethereum/web3";
+import Link from "next/link";
+import Router from "next/router";
 
 
 class RequestNew extends Component {
@@ -36,7 +37,10 @@ class RequestNew extends Component {
                 .createRequest(description, web3.utils.toWei(value, "ether"), recipientAddress)
                 .send({ from: accounts[0]});
 
-            Router.pushRoute(`/campaigns/${this.props.address}/requests`);
+            Router.push(
+                "/campaigns/[address]/requests",
+                `/campaigns/${this.props.address}/requests`
+                );
         } catch (err) {
             this.setState({ errorMessage: err.message });
         }
@@ -48,7 +52,10 @@ class RequestNew extends Component {
     render() {
         return (
             <Layout>
-                <Link route={`/campaigns/${this.props.address}/requests`}>
+                <Link
+                    href="/campaigns/[address]/requests"
+                    as={`/campaigns/${this.props.address}/requests`}
+                >
                     <a>Back</a>
                 </Link>
                 <h3>Create a Request</h3>

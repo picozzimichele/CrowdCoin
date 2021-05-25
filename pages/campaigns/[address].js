@@ -4,7 +4,7 @@ import campaignRetreve from "../../ethereum/campaign";
 import { Card, Grid, Button } from 'semantic-ui-react';
 import web3 from "../../ethereum/web3";
 import ContributeForm from "../../components/ContributeForm";
-import { Link } from "../../routes";
+import Link from "next/link";
 
 class CampaignShow extends Component {
     static async getInitialProps(props) {
@@ -90,7 +90,10 @@ class CampaignShow extends Component {
 
                 <Grid.Row>
                     <Grid.Column width={10}>
-                        <Link route={`/campaigns/${this.props.address}/requests`}>
+                        <Link 
+                            href="/campaigns/[address]/requests"
+                            as={`/campaigns/${this.props.address}/requests`}
+                        >
                             <a>
                             <Button primary>View Requests</Button>
                             </a>
